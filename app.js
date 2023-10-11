@@ -2,6 +2,8 @@ const gameBoard  = document.querySelector("#gameboard");
 const playerDisplay  = document.querySelector("#player");
 const  infoDisplay = document.querySelector("#info-display");
 
+const allSquares = document.querySelectorAll("#gameBoard .square ");
+
 // const width = 8;
 
 const startPieces = [
@@ -16,6 +18,7 @@ const startPieces = [
      rook, knight, bishop, queen, king, bishop, knight, rook
 ]
 
+// The board 
 function createBoard() {
     startPieces.forEach((startPiece, i) => {
         const square = document.createElement( 'div' )
@@ -41,5 +44,31 @@ function createBoard() {
      gameBoard.append(square);
     });
 }
-
 createBoard();
+
+
+
+allSquares.forEach(square =>{
+     square.addEventListener('dragstart', dragStart)
+     square.addEventListener('dragover', dragOver)
+     square.addEventListener('dragDrop')
+})
+
+
+let draggedElement;
+let startPositionId;
+ 
+function dragStart(e){
+     let startPositionId = console.log(e.target.parentNode.getAttribute("square-id"))
+     draggedElement = e.target
+}
+
+function dragOver(e) {
+     e.preventDefault
+}
+
+function dragDrop(e) {
+          e.stopPropagation();
+
+          e.target.parentNode.append(draggedElement)
+}

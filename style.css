@@ -15,14 +15,21 @@
 .square{
      width: 40px;
      height: 40px;
+     position: relative;
 }
 
 .square svg{
      width: 30px;
      height:30px;
-     margin: 5px
+     margin: 5px;
+     position: relative;
+     z-index :  -9l;
 }
 
+.path{
+     position: relative;
+     z-index: -10;
+}
 .beige{
      background-color: rgb(110,110,98);
 }
